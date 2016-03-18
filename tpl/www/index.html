@@ -1,0 +1,116 @@
+<!-- inc:head -->
+<link rel="stylesheet" type="text/css" href="images/superslides.css">
+<script type="text/javascript" src="images/jquery.js"></script>
+<script type="text/javascript" src="images/superslide.2.1.js"></script>
+
+<div class="fullSlide">
+  <div class="bd">
+    <ul>
+    <!-- run:$hotpic = phpok("hdp") -->
+    <!-- $hotpic[rslist] AS $key=>$value -->
+      <li _src="url('{:$value[picture]}')" style="background:#FEFF19 center 0 no-repeat;"><a target="_blank" href="{:$value[lj]}"></a></li>
+    <!-- end -->
+    <!-- run:unset($hotpic) -->
+    </ul>
+  </div>
+  
+  <div class="hd">
+    <ul>
+    </ul>
+  </div>
+  <span class="prev"></span> <span class="next"></span> 
+</div>
+<div class="clear"></div>
+<style type="text/css"> 
+.box{float:left;  width:580px; height:41px;line-height:41px; overflow:hidden;} 
+.box ul{margin:0; padding:0} 
+.box li{height:41px; line-height:41px; font-size:12px; text-align:left; list-style-type:none;} 
+.box li a {padding-left:50px; }
+</style>
+<div class="zxgg"><span style="float:left;">最新公告：</span>
+	<div class="box" id="marqueebox0">
+  <ul>
+    <!-- run:$news = phpok("zxgg") -->
+    <!-- $news[rslist] AS $key=>$value -->
+<li><a href="{:msg_url($value)}" title="{:$value[title]}">{:$value[title]}</a></li>
+	<!-- end -->
+    <!-- run:unset($news) -->
+</ul>
+</div>
+    <div class="zx_right">{:date("Y年m月d日")}</div>
+</div>
+<div class="clear"></div>
+<div class="cen">
+  <div class="cen_left">
+    <a href="index.php?c=list&cs=danjunjiyinzucexu">
+    <!-- run:$zxqj = phpok_msg("zxqj") -->
+    <img src="{:$zxqj[tp]}" width="288" height="288">
+    </a>
+  </div>
+  <div class="cen_center">
+    <a href="http://www.colowell.cn">
+    <!-- run:$zxqj = phpok_msg("yxdt") -->
+    <img src="{:$zxqj[tp]}" width="288" height="288">
+    <!-- run:unset($yxdt) -->
+    </a>
+  </div>
+  <div class="cen_right">
+    <a href="index.php?c=list&cs=tesefuwu">
+    <!-- run:$tsfw = phpok_msg("tsfw") -->
+    <img src="{:$tsfw[tp]}" width="288" height="288">
+    <!-- run:unset($tsfw) -->
+    </a>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="middle">
+    <style>#tag span{ color:#fff;}</style>
+    <div class="left_a" style="padding:0;">
+      <dl class="logindl_2" style="margin:0;">
+        <p class="tag" id="tag" style="line-height:40px; font-size:16px; text-align:center;"><span class="focus1" >公司新闻</span></p>
+        <div class="ph-con5 numlist clearfix" id="mlist_0" style="padding:0 20px;">
+          <ul>
+          <!-- run:$news = phpok("gsxw") -->
+          <!-- $news[rslist] AS $key=>$value -->
+            <li>
+              <a href="{:msg_url($value)}" title="{:$value[title]}">
+              <div style=" display:block; width:330px; float:left;">{:sys_cutstring($value[title],48)}...</div>
+              <!--if(time()-$value[post_date]<864000)-->
+              <img src="images/new.gif">
+              <!-- end -->
+              <div style="width:69px; float:right; display:block;">{:date("Y-m-d",$value[post_date])}</div>
+              </a>
+            </li>
+          <!-- end -->
+          </ul>
+          <div class="gd"><a href="{:list_url($news[me])}">更多&gt;&gt;</a></div>
+          <!-- run:unset($news) -->
+        </div>
+      </dl>
+    </div>
+    <div class="right_a" style="padding:0;">
+      <dl class="logindl_2" style="margin:0;">
+        <p class="tag" id="tag" style="line-height:40px; font-size:16px; text-align:center;"><span>科研动态</span></p>
+        <div class="ph-con5 numlist clearfix" id="mlist_0" style="padding:0 20px;"> 
+          <ul>
+          <!-- run:$news = phpok("tjwz") -->
+          <!-- $news[rslist] AS $key=>$value -->
+            <li>
+              <a href="{:msg_url($value)}" title="{:$value[title]}">
+              <div style=" display:block; width:330px; float:left;">{:sys_cutstring($value[title],48)}...</div>
+              <!--if(time()-$value[post_date]<259200)-->
+              <img src="images/new.gif">
+              <!-- end -->
+              <div style="width:69px; float:right; display:block;">{:date("Y-m-d",$value[post_date])}</div>
+              </a>
+            </li>
+            <!-- end -->
+          </ul>
+          <div class="gd"><a href="{:list_url($news[me])}">更多&gt;&gt;</a></div>
+          <!-- run:unset($news) -->
+        </div>
+      </dl>
+    </div>
+</div>
+<div class="clear"></div>
+<!-- inc:foot -->

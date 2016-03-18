@@ -1,0 +1,74 @@
+<div class="copyright">
+	<div style="float:left; width:13px;"><img src="images/a1.jpg"></div>
+	<div class="cpyt">
+    	<div style=" height:222px; overflow:hidden;">
+		<div class="zjth">
+        <span>走进拓宏</span>
+        <ul>
+        	 <!-- run:$left_catelist = phpok_catelist(63) -->
+        	 <!-- $left_catelist[rslist] AS $key=>$value -->
+            <li><a href="{:list_url($value)}">{:$value[cate_name]}</a></li>
+            <!-- end -->
+         	<!-- run:unset($left_catelist) -->
+        </ul>
+        </div>
+        <div class="zjth">
+        	<span>科研服务</span>
+        <ul>
+        <!-- run:$left_catelist = phpok_catelist(116) -->
+        <!-- $left_catelist[rslist] AS $key=>$value -->
+        	<li><a href="{:list_url($value)}">{:$value[cate_name]}</a></li>
+         <!-- end -->
+         <!-- run:unset($left_catelist) -->
+        </ul>
+        </div>
+        <div class="zjth">
+        	<span>市场动态</span>
+        <ul>
+        	 <!-- run:$left_catelist = phpok_catelist(86) -->
+        	<!-- $left_catelist[rslist] AS $key=>$value -->
+        	<li><a href="{:list_url($value)}">{:$value[cate_name]}</a></li>
+         	<!-- end -->
+         	<!-- run:unset($left_catelist) -->
+        </ul>
+        </div>
+        <div class="zjth">
+        	<span>技术支持</span>
+        <ul>
+        	 <!-- run:$left_catelist = phpok_catelist(95) -->
+        	<!-- $left_catelist[rslist] AS $key=>$value -->
+        	<li><a href="{:list_url($value)}">{:$value[cate_name]}</a></li>
+         	<!-- end -->
+         	<!-- run:unset($left_catelist) -->
+        </ul>
+        </div>
+        <div class="zjth">
+        	<span>加入我们</span>
+        <ul>
+        	 <!-- run:$left_catelist = phpok_catelist(109) -->
+        	<!-- $left_catelist[rslist] AS $key=>$value -->
+        	<li><a href="{:list_url($value)}">{:$value[cate_name]}</a></li>
+         	<!-- end -->
+         	<!-- run:unset($left_catelist) -->
+        </ul>
+        </div>
+        <script type="text/javascript" src="images/novogene_homey.js"></script>
+        <div class="zjth" style=" width:150px;">
+        	<span style="color:#fda100;">联系我们</span>
+        <ul>
+        	<li style="background:url(images/gzwb.jpg) no-repeat; height:29px; padding-left:50px; margin-bottom:10px; line-height:29px;"><a href="javascript:showtable()">关注微信</a></li>
+            <div style=" width:130px; height:130px; z-index: 9999; left: 1000px; top: 1080px; border: 1px solid rgb(204, 204, 204); display: none;" id="toutiaoweixin">
+ 			<a class="closewei" href="#"><!-- run:$ewm = phpok('ewm') -->{:$ewm[content]}<!-- run:unset($ewm) --></a></div>
+            <li style="background:url(images/sw.jpg) no-repeat; height:29px; padding-left:50px; margin-bottom:10px; line-height:29px;"><a href="mailto:<!-- run:$yxdz = phpok('yxdz') -->{:$yxdz[content]}<!-- run:unset($yxdz) -->?subject=Hello%20novogene">市场部邮箱</a></li>
+            <li style="background:url(images/zxfk.jpg) no-repeat; height:29px; padding-left:50px; margin-bottom:10px; line-height:29px;"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<!-- run:$zxzx = phpok('zxzx') -->{:$zxzx[content]}<!-- run:unset($zxzx) -->&site=qq&menu=yes">在线咨询</a></li>
+            <li style="background:url(images/zxzx.jpg) no-repeat; height:29px; padding-left:50px; margin-bottom:10px; line-height:29px;"><a href="index.php?c=list&cs=fankuiyijian">在线反馈</a></li>
+        </ul>
+        </div>
+        </div>
+        <div class="bottom"><!-- run:$intro = phpok('intro') -->{:$intro[content]}<!-- run:unset($intro) --></div>
+	</div>
+	<div style="float:right; width:6px;"><img src="images/a3.jpg"></div>
+</div>
+</div>
+</body>
+</html>

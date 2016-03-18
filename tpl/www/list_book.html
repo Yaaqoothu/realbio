@@ -1,0 +1,61 @@
+<!-- inc:head -->
+<script type="text/javascript" src="js/php.js"></script>
+<style type="text/css">.reply{margin:5px 15px;padding:3px 5px;border:1px solid #DDD;line-height:150%;}</style>
+
+<div class="main">
+<!-- inc:inc/left2 -->
+	<div class="left">
+    <!-- run:$left_catelist = phpok_catelist($cid) -->
+        <div class="border-lr">
+            <ul>
+                <!-- $left_catelist[rslist] AS $key=>$value -->
+                <li><a href="{:list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
+                <!-- end -->
+            </ul>
+        </div>
+    </div>
+	<div class="right">
+    	<div class="vmenu">
+        <!-- run:$left_catelist = phpok_catelist($cid) -->
+        <!-- $left_catelist[rslist] AS $key=>$value -->
+        <h3 style="border-bottom:none;"><a href="{:list_url($value)}"  {if($value[id] == $cid)} style=" display:block; padding-bottom:3px; border-bottom:5px solid #88c12a;"{end} >{:$value[cate_name]}</a></h3>
+        <!-- end -->
+        <!-- run:unset($left_catelist) -->
+        </div>
+     
+		<div id="post_book"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<script type="text/javascript">
+function js_book(rs,id)
+{
+	getid(id).innerHTML = rs;
+}
+function to_submit()
+{
+	var subject = getid("subject").value;
+	if(!subject)
+	{
+		alert("主题不允许为空");
+		getid("subject").focus();
+		return false;
+	}
+	var email = getid("email").value;
+	if(!email)
+	{
+		alert("联系方式不能为空");
+		return false;
+	}
+	var content = getid("content").value;
+	if(!content)
+	{
+		alert("请填写留言内容");
+		return false;
+	}
+	getid("_phpok_submit").disabled = true;
+	return true;
+}
+func_php("post&ms=book",js_book,"post_book");
+</script>
+<!-- inc:foot -->

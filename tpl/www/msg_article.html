@@ -1,0 +1,30 @@
+<!-- inc:head -->
+<div class="main">
+	<!-- inc:inc/left -->
+    <div class="left">
+        <!-- run:$left_catelist = phpok_catelist($cid) -->
+        <div class="border-lr">
+            <ul>
+                <!-- $left_catelist[rslist] AS $key=>$value -->
+                <li><a href="{:list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
+                <!-- end -->
+            </ul>
+        </div>
+        
+    </div>
+    <div class="right">
+        <div class="vmenu"><h3>{:$cate_rs[cate_name]}</h3></div>
+        <div class="border-notop"><div class="pd5 lh">
+                <div align="center"><div class="title">{:$rs[title]}</div></div>
+                <div class="date">发布时间：{:date("Y-m-d",$rs[post_date])} &nbsp; 点击率：{:$rs[hits]}</div>
+                <div class="content">{:$rs[content]}</div>
+
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!-- inc:foot -->

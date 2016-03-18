@@ -1,0 +1,107 @@
+<!-- inc:head -->
+<link rel="stylesheet" type="text/css" href="images/xixi.css">
+<script type="text/javascript" src="images/common1.js"></script>
+<script type="text/javascript" src="images/lrtk.js"></script>
+<div class="focus">
+    <ul class="rslides f426x240">
+    	<!-- run:$hotpic = phpok("hdp") -->
+		<!-- $hotpic[rslist] AS $key=>$value -->
+        <li><a href="{:$value[lj]}"><img  src="{:$value[picture]}"  /></a></li>
+        <!-- end -->
+		<!-- run:unset($hotpic) -->
+    </ul>
+</div>
+<div class="clear"></div>
+<style>
+	.zx_left p a{ padding-left:50px;}
+</style>
+<div class="zxgg">
+	<div class="zx_left"><span style="float:left;">最新公告：</span><p><marquee direction=top scrollamount=2 onmouseover="this.stop();" onmouseout="this.start();" width=500>
+    <!-- run:$news = phpok("zxgg") -->
+    <!-- $news[rslist] AS $key=>$value -->
+<a href="{:msg_url($value)}" title="{:$value[title]}">{:$value[title]}</a>
+	<!-- end -->
+    <!-- run:unset($news) -->
+</marquee></p></div>
+    <div class="zx_right">{:date("Y年m月d日")}</div>
+</div>
+<div class="clear"></div>
+<div class="cen">
+	<div class="cen_left"><a href="index.php?c=list&cs=zuixinkeji">
+    <!-- run:$zxqj = phpok_msg("zxqj") -->
+		<img src="{:$zxqj[tp]}" width="288" height="288">
+	<!-- run:unset($zxqj) -->
+    </a></div>
+    <div class="cen_center"><a href="index.php?c=list&cs=tesefuwu">
+    <!-- run:$tsfw = phpok_msg("tsfw") -->
+		<img src="{:$tsfw[tp]}" width="288" height="288">
+	<!-- run:unset($tsfw) -->
+    </a></div>
+	<div class="cen_right">
+    	<style>
+    	#tag span{ color:#fff;}
+    </style>
+    <div class="right_a" style="padding:0;">
+    	<dl class="logindl_2" style="margin:0;">
+        <p class="tag" id="tag" style="line-height:40px; font-size:16px; text-align:center;">
+		<span class="focus1" >公司新闻</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>科研动态</span>
+		</p>
+ 
+        <div class="ph-con5 numlist clearfix" id="mlist_0" style="padding:0 20px;">
+			<ul>
+        	<!-- run:$news = phpok("gsxw") -->
+    		<!-- $news[rslist] AS $key=>$value -->
+        	<li>
+            <a href="{:msg_url($value)}" title="{:$value[title]}">
+            <div style=" display:block; width:220px; float:left;">{:sys_cutstring($value[title],28)}...</div>
+            <div style="width:69px; float:right; display:block;">{:date("Y-m-d",$value[post_date])}</div>
+            </a>
+            
+            </li>
+            <!-- end -->
+       	</ul>
+        <div class="gd"><a href="{:list_url($news[me])}">更多&gt;&gt;</a></div>
+        <!-- run:unset($news) -->
+        </div>
+       
+        <div class="ph-con5 numlist clearfix"  id="mlist_1" style="display:none; padding:0 20px;" >
+    		<ul>
+        <!-- run:$news = phpok("tjwz") -->
+    		<!-- $news[rslist] AS $key=>$value -->
+        	<li>
+            <a href="{:msg_url($value)}" title="{:$value[title]}">
+            <div style=" display:block; width:220px; float:left;">{:sys_cutstring($value[title],30)}...</div>
+            <div style="width:69px; float:right; display:block;">{:date("Y-m-d",$value[post_date])}</div>
+            </a>
+            
+            </li>
+            <!-- end -->
+       	</ul>
+        <div class="gd"><a href="{:list_url($news[me])}">更多&gt;&gt;</a></div>
+       <!-- run:unset($news) -->
+        </div>
+      </dl>
+      </div>
+      <script type="text/javascript">
+      function changeshow(id,childID){
+try{
+	var btn = document.getElementById(id).getElementsByTagName("span");
+	for( i=0;i<btn.length;i++){
+		btn[i].id = "btn_"+i;
+		btn[i].onmouseover = function(){
+			for( i=0;i<btn.length;i++){
+				btn[i].className = "";
+				document.getElementById(childID+i).style.display = "none";
+			}
+			this.className = "focus1";
+			document.getElementById(childID+this.id.slice(-1)).style.display = "";
+		}	
+	}
+}catch(e){}
+}
+changeshow('tag','mlist_');
+</script>
+    </div>
+</div>
+<!-- inc:foot -->

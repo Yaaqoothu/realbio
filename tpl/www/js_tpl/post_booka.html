@@ -1,0 +1,68 @@
+
+<style>
+	em{ color:red;}
+</style>
+<div class="border-notop" style="padding:20px;">
+<form method="post" action="{:site_url('post,setok')}id={:$id}&module_id={:$module_id}" onsubmit="return to_submit();">
+<ul>
+<li>
+<table>
+<tbody><tr>
+<td style="width:px"><label>邮　　箱：&nbsp;<em>*</em></label></td>
+<td><input type="text" name="email" id="email" style="width:px;" placeholder=""></td>
+</tr>
+</tbody></table>
+</li>
+<li id="fm-item-text-5389f3eb1ee8c">
+<table>
+<tbody><tr>
+<td style="width:px"><label>姓　　名：&nbsp;<em>*</em></label></td>
+<td><input type="text" name="fullname" id="fullname" style="width:px;" placeholder=""></td>
+</tr>
+</tbody></table>
+</li>
+<li id="fm-item-custom_list-5389f47497b9c">
+<table>
+<tbody><tr>
+<td style="width:px"><label>性　　别：&nbsp;<em>*</em></label></td>
+<td>
+<input type="radio" name="sex" value="先生" checked="">&nbsp;&nbsp;先生<br>
+<input type="radio" name="sex"  value="女士">&nbsp;&nbsp;女士
+</tr>
+</tbody></table>
+</li>
+<li id="fm-item-text-5389f40f9d654">
+<table>
+<tbody><tr>
+<td style="width:px"><label>合同编号：&nbsp;<em>*</em></label></td>
+<td><input type="text" name="subject" id="subject" style="width:px;" placeholder=""></td>
+</tr>
+</tbody></table>
+</li>
+<li >
+<table>
+<tbody><tr>
+<td style="width:px"><label>手　　机：&nbsp;<em>*</em></label></td>
+<td><input type="text" name="lxdh" id="lxdh" style="width:px;" ></td>
+</tr>
+</tbody></table>
+</li>
+
+<li id="fm-item-textarea-5389f458c5b95">
+<table>
+<tbody><tr>
+<td style="width:px"><label>意见及建议：</label></td>
+<td><textarea name="content" id="content" style="width:300px;height:100px;" placeholder=""></textarea></td>
+</tr>
+</tbody></table>
+</li>
+
+</ul>
+
+<div style="margin-top:30px; padding-left:50px;">
+ <input type="submit" name="but01"  style="background:url(../images/tj01.jpg) no-repeat; width:72px; height:35px; border:none; cursor:pointer;" id="_phpok_submit" value=" " >
+ <input type="reset" class="bt02"  style="background:url(../images/tj02.jpg) no-repeat; width:72px; height:35px; border:none; cursor:pointer;" value=" ">
+		</div>
+</div>	
+
+

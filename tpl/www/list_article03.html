@@ -1,0 +1,66 @@
+<!-- inc:head -->
+
+<div class="main">
+	<div class="dy"><img src="images/dy.jpg"></div>
+    <div class="nav_line">当前所在位置：<a href="index.php">首页</a> 
+  <!-- if($leader && is_array($leader)) --> 
+  <!-- $leader AS $key=>$value --> 
+  <!-- if($value[url]) --> 
+  &gt; <a href="{:$value[url]}">{:$value[title]}</a> 
+  <!-- else --> 
+  <!-- end --> 
+  <!-- end --> 
+  <!-- else --> 
+  <!-- end --></div>
+	<div class="left">
+       
+        <!-- run:$left_catelist = phpok_catelist($cid) -->
+        <div class="border-lr">
+            <ul>
+                <!-- $left_catelist[rslist] AS $key=>$value -->
+                <li><a href="{:list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
+                <!-- end -->
+            </ul>
+        </div>
+        
+    </div>
+   
+	<div class="right">
+		<div class="vmenu">
+        <!-- run:$catelist = phpok_s_catelist($cid) -->
+        <!-- $catelist AS $key=>$value -->
+        <h3 style="border-bottom:none;"><a href="{:list_url($value)}" {if($value[id] == $cid)} style=" display:block; padding-bottom:3px; border-bottom:5px solid #88c12a;"{end} >{:$value[cate_name]}</a></h3>
+        <!-- end -->
+        <!-- run:unset($catelist) -->
+        </div>
+		<div class="border-notop">
+			<ul class="newslist">
+			<!-- $rslist AS $key=>$value -->
+			<li><span class="f_right">{:date("Y-m-d",$value[post_date])}&nbsp;</span><a href="{:msg_url($value)}"{if($value[target])} target="_blank"{end} style="{:$value[style]}">{:$value[title]}</a></li>
+			<!-- end -->
+			</ul>
+            <div class="line"></div>
+                
+                
+			<!-- if($pagelist && is_array($pagelist) && count($pagelist)>0) -->         
+			<div align="right">
+			<table class="pagelist">
+			<tr>
+            <td width="220" align="left">共{:$pagelist[0]['total']}条 {:$pagelist[0]['currentPage']}/{:$pagelist[0]['totalPage']}</td>
+				<!-- $pagelist AS $key=>$value -->
+				<td><a href="{:$value[url]}" class="{:$value[status] ? 'm' : 'n'}">{:$value[name]}</a></td>
+				<!-- end -->
+                                <td width="230">{:$pagelist[0]['selectPage']}{:$pagelist[0]['inputPage']}</td>
+			</tr>
+			</table>           
+			</div>
+			<!-- end -->
+                        
+			<div class="line"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+<!-- inc:foot -->

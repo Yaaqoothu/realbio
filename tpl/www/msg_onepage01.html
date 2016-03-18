@@ -1,0 +1,20 @@
+<!-- inc:head -->
+<div class="main">
+	<!-- inc:inc/left -->
+	<div class="left">
+     <!-- run:$left_catelist = phpok_catelist($cid) -->
+        <div class="border-lr">
+            <ul>
+                <!-- $left_catelist[rslist] AS $key=>$value -->
+                <li><a href="{:list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
+                <!-- end -->
+            </ul>
+        </div>
+    </div>
+	<div class="right">
+		<div class="vmenu"><h3>{:$rs[title]}</h3></div>
+		<div class="border-notop"><div class="pd5 lh">{:phpok_c($id,"content")}</div></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- inc:foot -->

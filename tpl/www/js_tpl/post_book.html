@@ -1,0 +1,108 @@
+<style>
+em {
+	color: red;
+}
+</style>
+<div class="border-notop" style="padding:20px;">
+<form method="post" action="{:site_url('post,setok')}id={:$id}&module_id={:$module_id}" onsubmit="return to_submit();">
+	
+<ul>
+  <li id="fm-item-text-5389f3eb1ee8c">
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>姓　　名：&nbsp;<em>*</em></label></td>
+          <td><input type="text" name="fullname" id="fullname" style="width:px;" placeholder=""></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li id="fm-item-custom_list-5389f47497b9c">
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>性　　别：&nbsp;<em>*</em></label></td>
+          <td><input type="radio" name="sex" value="先生" checked="">
+            &nbsp;&nbsp;先生<br>
+            <input type="radio" name="sex"  value="女士">
+            &nbsp;&nbsp;女士 
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li id="fm-item-text-5389f40f9d654">
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>应聘职位：&nbsp;<em>*</em></label></td>
+          <td><input type="text" name="subject" id="subject" style="width:px;" placeholder=""></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li >
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>联系电话：&nbsp;<em>*</em></label></td>
+          <td><input type="text" name="lxdh" id="lxdh" style="width:px;" ></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>电子邮箱：&nbsp;<em>*</em></label></td>
+          <td><input type="text" name="email" id="email" style="width:px;" placeholder=""></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li id="fm-item-textarea-5389f458c5b95">
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>粘贴简历：&nbsp;&nbsp;</label></td>
+          <td><textarea name="content" id="content" style="width:300px;height:100px;" placeholder=""></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li id="fm-item-file-5389f51272de0">
+    <div class='table'>
+  <div class='left' style="width:70px;">简介上传：&nbsp;</div>
+  <div class='right'>
+    <div>
+      <table cellpadding='0' cellspacing='0'>
+        <tr>
+          <input type='hidden' name='jlsc' id='jlsc' value=''>
+          <td><input type='button' class='btn2' value='选择' onclick="phpjs_download('jlsc','_view_jlsc')">
+            <input type='button' class='btn2' value='取消' onclick="phpjs_clear_download('jlsc','_view_jlsc');">
+            <span id='_view_jlsc'></span></td>
+          <td class='clue_on'>&nbsp;大小不要超过20M谢谢</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class='clear'></div>
+</div>
+  </li>
+  <li id="fm-item-note-5389f5596c4a4">
+    <table>
+      <tbody>
+        <tr>
+          <td style="width:px"><label>注：</label></td>
+          <td>支持word/txt/pdf格式文档！人力部收到简历后，如符合招聘要求，将在5-10个工作日内电话通知面试！ </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<div style="margin-top:30px; padding-left:50px;">
+  <input type="submit" name="but01"  style="background:url(../images/tj01.jpg) no-repeat; width:72px; height:35px; border:none; cursor:pointer;" id="_phpok_submit" value=" " >
+  <input type="reset" class="bt02"  style="background:url(../images/tj02.jpg) no-repeat; width:72px; height:35px; border:none; cursor:pointer;" value=" ">
+</div>
+</div>

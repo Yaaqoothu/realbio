@@ -1,0 +1,90 @@
+<!-- inc:head -->
+<div class="main">
+	<div class="left">
+		<!-- run:$left_catelist = phpok_catelist($cate_rs[parentid] ? $cate_rs[parentid] : $cate_rs[id]) -->
+		<h3>{:$left_catelist[me][cate_name]}</h3>
+		<div class="border-lr">
+		<ul>
+			<!-- $left_catelist[rslist] AS $key=>$value -->
+			<li><a href="{:list_url($value)}" title="{:$value[cate_name]}">·{:sys_cutstring($value[cate_name])}</a></li>
+			<!-- end -->
+		</ul>
+		</div>
+		<!-- run:unset($left_catelist) -->
+		<div class="bottom"></div>
+		<div class="line"></div>
+		<!-- inc:inc/left -->
+	</div>
+	<div class="right">
+		<div class="vmenu"><h3>{:$cate_rs[cate_name]}</h3><span>&nbsp;</span></div>
+		<div class="border-notop"><div class="pd5 lh">
+			<div align="center"><div class="title">{:$rs[title]}</div></div>
+			<div class="date">发布时间：{:date("Y-m-d",$rs[post_date])} &nbsp; 点击率：{:$rs[hits]}</div>
+			<div class="picplay">
+				<div align="center"><table>
+				<tr>
+					<td width="500px" height="500px" align="center"><img src="images/loading.gif" id="big-picture" /></td>
+				</tr>
+				</table></div>
+				<div>
+					<table width="100%">
+					<tr>
+						<!-- $rs[bigpic] AS $key=>$value -->
+						<td align="center"><img src="{:$value[gd][thumb]}" width="65px" height="65px" id="thumb_{:$key}" class="img_no_select hand" onclick="load_img({:$key});"></td>
+						<!-- row:8 -->
+						<!-- end -->
+					</tr>
+					</table>
+					<script type="text/javascript">
+					var img_count = {:count($rs[bigpic])};//图片数量
+					var myhtml = "";
+					var picarray = new Array();
+					{$rs[bigpic] AS $key=>$value}
+					picarray[{:$key}] = "{:$value[gd][big]}";
+					{end}
+					function load_img(k)
+					{
+						if(k>=img_count) k=0;
+						for(var i=0; i< img_count;i++)
+						{
+							if(i == k)
+							{
+								getid("thumb_"+k).className="img_selected hand";
+								img_load(picarray[k],"big-picture");
+							}
+							else
+							{
+								getid("thumb_"+i).className="img_no_select hand";
+							}
+						}
+					}
+					load_img(0);
+					</script>
+				</div>
+			</div>
+			<!-- if($rs[content]) -->
+			<div class="picplay"><div style="padding:3px 5px;">{:$rs[content]}</div></div>
+			<!-- end -->
+			<!-- run:$np_list = phpok_next_prev($rs[id],$rs[cate_id]) -->
+			<!-- if($np_list) -->
+			<div>
+				<table width="100%">
+				<!-- $np_list[next] AS $key=>$value -->
+				<tr>
+					<td>下一主题：<a href="{:msg_url($value)}" title="{:$value[title]}">{:$value[title]}</a></td>
+				</tr>
+				<!-- end -->
+				<!-- $np_list[prev] AS $key=>$value -->
+				<tr>
+					<td>上一主题：<a href="{:msg_url($value)}" title="{:$value[title]}">{:$value[title]}</a></td>
+				</tr>
+				<!-- end -->
+				</table>
+			</div>
+			<!-- end -->
+			<!-- run:unset($np_list) -->
+		</div></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- inc:foot -->

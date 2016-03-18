@@ -1,0 +1,155 @@
+<!-- inc:head -->
+<SCRIPT src="js/jquery-1.2.6.pack.js" type=text/javascript></SCRIPT>
+<SCRIPT src="js/base.js" type=text/javascript></SCRIPT>
+<div class="main">
+	<div class="left">
+		<!-- run:$left_catelist = phpok_catelist($cate_rs[parentid] ? $cate_rs[parentid] : $cate_rs[id]) -->
+		<h3>{:$left_catelist[me][cate_name]}</h3>
+		<div class="border-lr">
+		<ul>
+			<!-- $left_catelist[rslist] AS $key=>$value -->
+			<li><a href="{:list_url($value)}" title="{:$value[cate_name]}">·{:sys_cutstring($value[cate_name])}</a></li>
+			<!-- end -->
+		</ul>
+		</div>
+		<!-- run:unset($left_catelist) -->
+		<div class="bottom"></div>
+		<div class="line"></div>
+		<!-- inc:inc/left -->
+	</div>
+	<div class="right">
+		<div class="vmenu"><h3>{:$cate_rs[cate_name]}</h3><span>&nbsp;</span></div>
+		<div class="border-notop"><div class="pd5 lh">
+			<div class="proimg">
+
+            <div align="center">  
+<div id=preview>
+	<div class=jqzoom id=spec-n1 onClick="window.open('http://sc.chinaz.com/')"><IMG height=350
+	src="{:$rs[thumb][gd][big]}" jqimg="{:$rs[thumb][gd][big]}" width=350>
+	</div>
+	<div id=spec-n5>
+		<div class=control id=spec-left>
+			<img src="images/left.gif" />
+		</div>
+		<div id=spec-list>
+			<ul class=list-h><!-- $rs[propic] AS $key=>$value -->
+				<li><img src="{:$value[gd][big]}" id="big-picture"> </li>
+				<!-- end -->
+			</ul>
+		</div>
+		<div class=control id=spec-right>
+			<img src="images/right.gif" />
+		</div>
+		
+    </div>
+</div>
+<SCRIPT type=text/javascript>
+	$(function(){			
+	   $(".jqzoom").jqueryzoom({
+			xzoom:400,
+			yzoom:400,
+			offset:10,
+			position:"right",
+			preload:1,
+			lens:1
+		});
+		$("#spec-list").jdMarquee({
+			deriction:"left",
+			width:350,
+			height:56,
+			step:2,
+			speed:4,
+			delay:10,
+			control:true,
+			_front:"#spec-right",
+			_back:"#spec-left"
+		});
+		$("#spec-list img").bind("mouseover",function(){
+			var src=$(this).attr("src");
+			$("#spec-n1 img").eq(0).attr({
+				src:src.replace("\/n5\/","\/n1\/"),
+				jqimg:src.replace("\/n5\/","\/n0\/")
+			});
+			$(this).css({
+				"border":"2px solid #ff6600",
+				"padding":"1px"
+			});
+		}).bind("mouseout",function(){
+			$(this).css({
+				"border":"1px solid #ccc",
+				"padding":"2px"
+			});
+		});				
+	})
+	</SCRIPT>
+
+<SCRIPT src="js/lib.js" type=text/javascript></SCRIPT>
+<SCRIPT src="js/zzsc.js" type=text/javascript></SCRIPT>  
+</div>
+           
+			</div>
+			<div class="protxt">
+				<h3 class="protitle">{:$rs[title]}</h3>
+				<div class="note">{:$rs[note]}</div>
+				<div><b>价格：</b><span class="price">{:sys_format_price($rs[price])}</span> 元</div>
+				<div><b>发布时间：</b>{:date("Y-m-d",$rs[post_date])}</div>
+				<div><b>查看次数：</b>{:$rs[hits]}</div>
+                <div><input name="amount" id="amount" type="text" value="{:$rs[amount]}" /></div>
+				<div><input type="button" value="在线购买" class="buy" onclick="addcart('{:$rs[id]}',$('#amount').val())" /> <input type="button" value="产品咨询" class="con" onclick="direct('{:site_url('post,set','ms=xunjia&tid='.$rs[id].'&title='.rawurlencode($rs[title]).'&picture='.rawurlencode($rs[thumb][gd][thumb]))}')" /></div>
+				
+			</div>
+			<div style="clear:both;"><div class="line"></div></div>
+		</div></div>
+		<div class="line"></div>
+		<div class="vmenu"><h3>产品描述</h3><span>&nbsp;</span></div>
+		<div class="border-notop"><div class="pd5 lh">{:$rs[content]}</div></div>
+        <div class="line"></div>
+        
+ <!-- run:$rslist= getHis() -->
+    <div class="section">
+    <div class="vmenu"><h3>浏览历史：</h3><span>&nbsp;</span></div>
+      <div class="flzs">
+        <ul class="catelist">
+          <!-- $rslist AS $key=>$value -->
+          <li>
+            <div class="catelist_tp"> <a href="{:msg_url($value)}" title="{:$value[title]}"><img src="{:$value[picture]}" border="0" alt="{:$value[title]}" /></a></div>
+            <div class="left_catelist_bt"> <a href="{:msg_url($value)}" title="{:$value[title]}" class="cate_name">{:sys_cutstring($value[title],17)}</a> </div>      
+          </li>
+          
+          <!-- end -->
+          
+        </ul>
+      </div>
+    </div>
+        
+	</div>
+	<div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+var img_count = {:count($rs[propic])};//产品图片
+var myhtml = "";
+var picarray = new Array();
+{$rs[propic] AS $key=>$value}
+picarray[{:$key}] = "{:$value[gd][big]}";
+{end}
+function load_img(k)
+{
+	if(k>=img_count) k=0;
+	for(var i=0; i< img_count;i++)
+	{
+		if(i == k)
+		{
+			getid("thumb_"+k).className="img_selected hand";
+			img_load(picarray[k],"big-picture");
+		}
+		else
+		{
+			getid("thumb_"+i).className="img_no_select hand";
+		}
+	}
+}
+load_img(0);
+</script>
+
+<!-- inc:foot -->

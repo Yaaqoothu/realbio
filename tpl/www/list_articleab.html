@@ -1,0 +1,86 @@
+<!-- inc:head -->
+
+
+
+<div class="main">
+	<!-- inc:inc/left2 -->
+ <style>
+  	  .suckerdiv li{ float:left; padding:0 20px 0 20px;}
+	  .sh{ height:114px; text-align:center; padding:18px 0 0 82px; border:1px solid #e3e3e3; margin-bottom:10px;}
+	  .suckerdiv li p{ font-size:14px; padding-top:70px; }
+  	  .suckerdiv li.lia a{ background:url(images/aa.jpg) no-repeat top; width:120px; height:100px; display:block;}
+	  .suckerdiv li.lib a{ background:url(images/bb.jpg) no-repeat top; width:100px; height:100px; display:block;}
+	  .suckerdiv li.lic a{ background:url(images/cc.jpg) no-repeat top; width:100px; height:100px; display:block;}
+	  .suckerdiv li.lif a{ background:url(images/ff.jpg) no-repeat top; width:100px; height:100px; display:block;}
+	  .suckerdiv li.lid a{ background:url(images/dd.jpg) no-repeat top; width:100px; height:100px; display:block;}
+	  .suckerdiv li.lie a{ background:url(images/ee.jpg) no-repeat top; width:150px; height:100px; display:block;}
+  	  .suckerdiv li.lia a:hover{ background:url(images/aaa.jpg) no-repeat top; color:#88c12a;}
+	  .suckerdiv li.lib a:hover{ background:url(images/aab.jpg) no-repeat top; color:#88c12a;}
+	  .suckerdiv li.lic a:hover{ background:url(images/aac.jpg) no-repeat top; color:#88c12a;}
+	  .suckerdiv li.lif a:hover{ background:url(images/aaf.jpg) no-repeat top; color:#88c12a;}
+	  .suckerdiv li.lid a:hover{ background:url(images/aad.jpg) no-repeat top; color:#88c12a;}
+	  .suckerdiv li.lie a:hover{ background:url(images/aae.jpg) no-repeat top; color:#88c12a;}
+  </style>
+  <div class="sh">
+	<div class="suckerdiv">
+	<ul id="suckertree1">
+	<li class="lia" >
+    <a style="background:url(images/aaa.jpg) no-repeat top;" href="index.php?c=list&cs=danjundongzhiwudenovocexu" >
+    <p>微生物基因组测序</p></a>
+	</li>
+    <li class="lib">
+    <a  href="index.php?c=list&cs=mrnacexu" >
+    <p>转录组测序</p></a>
+	</li>
+    <li  class="lic">
+    <a  href="index.php?c=list&cs=dongzhiwuzuzhongcexu" >
+    <p>重测序</p></a>
+	</li>
+    <li  class="lif">
+    <a  href="index.php?c=list&cs=dongzhiwudenovocexu" >
+    <p>基因组测序</p></a>
+	</li>
+    <li  class="lid">
+    <a href="index.php?c=list&cs=jiankujicexufuwu" >
+    <p>建库及测序</p></a>
+	</li>
+    <li  class="lie">
+    <a  href="index.php?c=list&cs=fuwuqijiqundajian" >
+    <p>集群搭建</p></a>
+	</li>
+	</ul>
+	</div>
+  </div>
+  <style>
+  		.border-lr li.dd a{ font-size:12px; font-weight:normal; padding-left:30px;}
+  </style>
+  <div class="clear"></div>
+	<div class="left"> 
+            <!--<pre>{:print_r($rs,true)}</pre>--> 
+     <!-- run:$catelist = phpok_s_catelist(119) -->
+<div class="border-lr">
+<ul id="suckertree1">
+<!-- $catelist AS $key=>$value -->
+<li><a href="{:list_url($value)}">{:$value[cate_name]}</a>
+   <!-- run:$sonlist = phpok_s_catelist($value[id]) -->
+  <ul>
+    <!-- $sonlist AS $k=>$v -->
+    <li class="dd"><a href="{:list_url($v)}" >{:$v[cate_name]}</a>
+  </li>
+   <!-- end -->
+  </ul>
+  <!-- run:unset($sonlist) -->
+</li>
+<!-- end -->
+</ul>
+</div>
+<!-- run:unset($catelist) -->
+    </div>
+    
+	<div class="right">
+		<div class="vmenu"><h3 style="width:120px;">{:$rs[cate_name]}</h3></div>
+		<div class="border-notop"><div class="pd5 lh">{:$rs[jsjj]}</div></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- inc:foot -->
