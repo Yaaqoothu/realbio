@@ -1,0 +1,48 @@
+<!-- inc:head -->
+<div class="main">
+    <!-- inc:inc/left2 -->
+    <div class="left">
+        <!-- run:$left_catelist = phpok_catelist(95) -->
+        <div class="border-lr">
+            <ul>
+                <!-- if($cid == 207 ) -->
+                <li> <a href="index.php?c=list&cs=jingpinziliao">精品资料</a></li>
+                <!-- end -->
+                <!-- $left_catelist[rslist] AS $key=>$value -->
+                <li><a href="{:$value[linkurl] ? $value[linkurl] : list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
+                <!-- end -->
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <div class="vmenu"><h3>{:$rs[cate_name]}</h3><span>&nbsp;</span></div>
+        <div class="border-notop" style="padding:20px;">
+            <!-- $rslist AS $key=>$value -->
+            <div style="float:left;padding:5px 0 50px 7px;">
+                <img src="{:$value[picture]}" height="310px" style="border:1px solid #ccc;" alt="{:$value[title]}"/>
+                <p style="padding:10px 0 0;font-size:16px;color:#7d7c7d;line-height:26px;text-align:center;"><a
+                        href="{:$value[lj]}">{:$value[title]}</a></p>
+            </div>
+            <!-- end -->
+            <div class="clear line"></div>
+            <!-- if($pagelist && is_array($pagelist) && count($pagelist)>0) -->
+            <div align="right">
+                <table class="pagelist">
+                    <tr>
+                        <td width="220" align="left">共{:$pagelist[0]['total']}条
+                            {:$pagelist[0]['currentPage']}/{:$pagelist[0]['totalPage']}
+                        </td>
+                        <!-- $pagelist AS $key=>$value -->
+                        <td><a href="{:$value[url]}" class="{:$value[status] ? 'm' : 'n'}">{:$value[name]}</a></td>
+                        <!-- end -->
+                        <td width="230">{:$pagelist[0]['selectPage']}{:$pagelist[0]['inputPage']}</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- end -->
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- inc:foot -->

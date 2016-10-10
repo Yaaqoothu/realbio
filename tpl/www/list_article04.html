@@ -1,25 +1,25 @@
 <!-- inc:head -->
-
 <div class="main">
 	<!-- inc:inc/left2 -->
 	<div class="left">
-       
         <!-- run:$left_catelist = phpok_catelist($cid) -->
         <div class="border-lr">
             <ul>
+                <!-- if($cid == 200 ) -->
+                <li> <a href="index.php?c=list&cs=jingpinziliao">精品资料</a></li>
+                <!-- end -->
                 <!-- $left_catelist[rslist] AS $key=>$value -->
                 <li><a href="{:$value[linkurl] ? $value[linkurl] : list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
                 <!-- end -->
             </ul>
         </div>
-        
     </div>
-   
+
 	<div class="right">
 		<div class="vmenu">
-        
-        <h3 style="border-bottom:none;"><a href="{:list_url($value)}"  style=" display:block; padding-bottom:3px; border-bottom:5px solid #88c12a;" >{:$rs[cate_name]}</a></h3>
-        
+
+        <h3 style="border-bottom:none;display:block; padding-bottom:3px; border-bottom:5px solid #88c12a;">{:$rs[cate_name]}</h3>
+
         </div>
 		<div class="border-notop" style="padding:20px;">
 			<ul class="newslist" style=" background:url(images/sdd.jpg);">
@@ -28,9 +28,9 @@
 			<!-- end -->
 			</ul>
             <div class="line"></div>
-                
-                
-			<!-- if($pagelist && is_array($pagelist) && count($pagelist)>0) -->         
+
+
+			<!-- if($pagelist && is_array($pagelist) && count($pagelist)>0) -->
 			<div align="right">
 			<table class="pagelist">
 			<tr>
@@ -40,10 +40,10 @@
 				<!-- end -->
                                 <td width="230">{:$pagelist[0]['selectPage']}{:$pagelist[0]['inputPage']}</td>
 			</tr>
-			</table>           
+			</table>
 			</div>
 			<!-- end -->
-                        
+
 			<div class="line"></div>
 		</div>
 	</div>

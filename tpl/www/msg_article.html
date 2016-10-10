@@ -5,6 +5,9 @@
         <!-- run:$left_catelist = phpok_catelist($cid) -->
         <div class="border-lr">
             <ul>
+                <!-- if($cid == 200 ) -->
+                <li> <a href="index.php?c=list&cs=jingpinziliao">精品资料</a></li>
+                <!-- end -->
                 <!-- $left_catelist[rslist] AS $key=>$value -->
                 <li><a href="{:list_url($value)}" title="{:$value[cate_name]}">{:$value[cate_name]}</a></li>
                 <!-- end -->
